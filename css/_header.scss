@@ -1,0 +1,140 @@
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+// Main Nav
+.main-nav {
+    width: 100%;
+    height: 10rem;
+    padding: 0 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Logo
+.logo {
+    a {
+        font-family: 'Lato', sans-serif;
+        font-size: 1.6rem;
+        color: #eee;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        outline: 2px solid #eee;
+        padding: 1rem 2rem;
+    }
+}
+
+// Hamburger Menu
+.hamburger-menu {
+    height: 5rem;
+    width: 5rem;
+    background-color: #eee;
+    border-radius: .4rem;
+    box-shadow: 
+        .5rem .5rem 1rem #cacaca,
+        .5rem .5rem 1rem #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+
+    &:hover {
+        box-shadow: 
+        inset .5rem .5rem 1rem #cacaca,
+        inset .5rem .5rem 1rem #fff;
+    }
+}
+
+.bar {
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block;
+    position: relative;
+    transition:  background-color .5s;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        background-color: #333;
+        transition:  all .5s;
+    }
+
+    &::before {
+        top: -.8rem;
+    }
+
+    &::after {
+        top: .8rem;
+    }
+}
+
+// Hamburger Menu Open
+.open .bar {
+    background-color: transparent;
+
+    &::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}
+
+// Nav items
+.nav {
+    &-list {
+        width: 50rem;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #eee;
+        transform: translateX(55rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: -.5rem 0 1rem rgba(0,0,0,.1);
+        z-index: 1500;
+        transition: transform .5s;
+    }
+
+    &-item  {
+        list-style: none;
+        border-bottom: 2px solid crimson;
+    }
+
+    &-link {
+        text-decoration: none;
+        display: block;
+        color: #333;
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: .5rem;
+        transition: color .5s;
+
+        &:hover {
+            color: crimson;
+        }
+    }
+}
+
+
+.open .nav-list {
+    transform: translateX(0);
+}
